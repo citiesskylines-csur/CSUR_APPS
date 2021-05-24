@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Target Name="NanUIRuntimeAfterBuild" AfterTargets="AfterBuild">
+        <ItemGroup>
+            <RuntimeSourceDir Include="$(MSBuildThisFileDirectory)..\Runtime\**\*.*" />
+            <ResourceDir Include="$(MSBuildThisFileDirectory)..\Runtime\fx\Resources\**\*.*" />
+            <LibCefDirForX86 Include="$(MSBuildThisFileDirectory)..\Runtime\fx\x86\*.*" />
+            <LibCefDirForX64 Include="$(MSBuildThisFileDirectory)..\Runtime\fx\x64\*.*" />
+        </ItemGroup>
+        <Copy Condition=" '$(PlatformName)' == 'AnyCPU' " SourceFiles="@(RuntimeSourceDir)" DestinationFolder="$(TargetDir)\%(RecursiveDir)" SkipUnchangedFiles="true"  />
+        <Copy Condition=" '$(PlatformName)' == 'x86' Or '$(PlatformName)' == 'x64' " SourceFiles="@(ResourceDir)" DestinationFolder="$(TargetDir)\%(RecursiveDir)" SkipUnchangedFiles="true"  />
+        <Copy Condition=" '$(PlatformName)' == 'x86' " SourceFiles="@(LibCefDirForX86)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true"  />
+        <Copy Condition=" '$(PlatformName)' == 'x64' " SourceFiles="@(LibCefDirForX64)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true"  />
+        <Message Importance="high" Text="Copying NetDimension.NanUI.Runtime($(PlatformName)) to $(TargetDir)..." />
+    </Target>
+</Project>
