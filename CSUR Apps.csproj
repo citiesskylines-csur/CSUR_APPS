@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props" Condition="Exists('packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props')" />
+  <Import Project="packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props" Condition="Exists('packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props')" />
+  <Import Project="packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props" Condition="Exists('packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props')" />
+  <Import Project="packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props" Condition="Exists('packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props')" />
+  <Import Project="packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props" Condition="Exists('packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{486FC352-7002-407A-AE6C-5E953D2ACEEB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CSUR.Apps</RootNamespace>
+    <AssemblyName>CSUR.Apps</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDimension.NanUI, Version=0.8.80.191, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.0.8.80.191\lib\net472\NetDimension.NanUI.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDimension.NanUI.EmbeddedFileResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.EmbeddedFileResource.0.8.80.176\lib\net472\NetDimension.NanUI.EmbeddedFileResource.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDimension.NanUI.LocalFileResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.LocalFileResource.0.8.80.176\lib\net472\NetDimension.NanUI.LocalFileResource.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGen.Runtime, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SharpGen.Runtime.1.2.1\lib\netstandard2.0\SharpGen.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Json, Version=2.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.Json.4.7.1\lib\net461\System.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vortice.Direct2D1, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vortice.Direct2D1.1.8.54\lib\netstandard2.0\Vortice.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="Vortice.DirectX, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vortice.DirectX.1.8.54\lib\netstandard2.0\Vortice.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Vortice.DXGI, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vortice.DXGI.1.8.54\lib\netstandard2.0\Vortice.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="Vortice.Mathematics, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vortice.Mathematics.1.3.3\lib\netstandard2.0\Vortice.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Vortice.Runtime.COM, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vortice.Runtime.COM.1.8.54\lib\netstandard2.0\Vortice.Runtime.COM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="CSURWebs\assets\fonts\boxicons.eot" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\boxicons.ttf" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\boxicons.woff" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\boxicons.woff2" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.eot" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.ttf" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.woff" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.woff2" />
+    <None Include="CSUR-master\.gitignore">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\AUTHORS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\core\__pycache__\assets.cpython-37.pyc" />
+    <None Include="CSUR-master\core\__pycache__\csur.cpython-37.pyc" />
+    <None Include="CSUR-master\core\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="CSUR-master\csur.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\graphics\cairo\py.typed" />
+    <None Include="CSUR-master\graphics\cairo\README.md" />
+    <None Include="CSUR-master\graphics\cairo\_cairo.cp37-win_amd64.pyd" />
+    <None Include="CSUR-master\graphics\cairo\__init__.pyi" />
+    <None Include="CSUR-master\graphics\cairo\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="CSUR-master\graphics\color.ini" />
+    <None Include="CSUR-master\graphics\__pycache__\graphics.cpython-37.pyc" />
+    <None Include="CSUR-master\graphics\__pycache__\thumbnail.cpython-37.pyc" />
+    <None Include="CSUR-master\graphics\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="CSUR-master\LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\make.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\modeling\__pycache__\blender_utils.cpython-37.pyc" />
+    <None Include="CSUR-master\modeling\__pycache__\modeler.cpython-37.pyc" />
+    <None Include="CSUR-master\modeling\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="CSUR-master\prefab\templates\lane\barrier.json" />
+    <None Include="CSUR-master\prefab\templates\lane\bike.json" />
+    <None Include="CSUR-master\prefab\templates\lane\car.json" />
+    <None Include="CSUR-master\prefab\templates\lane\median.json" />
+    <None Include="CSUR-master\prefab\templates\lane\ped.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\barrier_l.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\barrier_r.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\bike_l.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\bike_r.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\car_l.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\car_r.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\ped_l.json" />
+    <None Include="CSUR-master\prefab\templates\lane_old\ped_r.json" />
+    <None Include="CSUR-master\prefab\templates\netinfo\basic.json" />
+    <None Include="CSUR-master\prefab\templates\netinfo\bridge.json" />
+    <None Include="CSUR-master\prefab\templates\netinfo\elevated.json" />
+    <None Include="CSUR-master\prefab\templates\netinfo\slope.json" />
+    <None Include="CSUR-master\prefab\templates\netinfo\tunnel.json" />
+    <None Include="CSUR-master\prefab\templates\net_ai\basic.json" />
+    <None Include="CSUR-master\prefab\templates\net_ai\bridge.json" />
+    <None Include="CSUR-master\prefab\templates\net_ai\elevated.json" />
+    <None Include="CSUR-master\prefab\templates\net_ai\slope.json" />
+    <None Include="CSUR-master\prefab\templates\net_ai\tunnel.json" />
+    <None Include="CSUR-master\prefab\templates\node_presets.json" />
+    <None Include="CSUR-master\prefab\templates\pillars.json" />
+    <None Include="CSUR-master\prefab\templates\props.json" />
+    <None Include="CSUR-master\prefab\templates\segment_presets.json" />
+    <None Include="CSUR-master\prefab\templates\skins.json" />
+    <None Include="CSUR-master\prefab\__pycache__\assetmaker.cpython-37.pyc" />
+    <None Include="CSUR-master\prefab\__pycache__\compiler.cpython-37.pyc" />
+    <None Include="CSUR-master\prefab\__pycache__\prop_utils.cpython-37.pyc" />
+    <None Include="CSUR-master\prefab\__pycache__\xmlserializer.cpython-37.pyc" />
+    <None Include="CSUR-master\prefab\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="CSUR-master\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\Readme_jp.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CSUR-master\RoadElements-master\LICENSE" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\中间带.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\人行道.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\护栏.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板单向.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板双向.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\纵梁.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam_seperator.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_full.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_half.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\gore.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\joint.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bikelane.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\curb.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\curb_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\wall.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_center.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_right.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\dashed_line.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed_single.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_single.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_center.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_channel.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_full.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_left.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_right.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\white_line.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt_small.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\central_median.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\curb.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\curb_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\side_median.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\node\stop_line.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch2.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\median.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\median_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\roof.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\roof_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\fence.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\fence_lod.FBX" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\arrow.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\gore.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof.fbx" />
+    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof_lod.fbx" />
+    <None Include="CSUR-master\RoadElements-master\README.md" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CSURWebs\assets\css\animate.css" />
+    <EmbeddedResource Include="CSURWebs\assets\css\app.css" />
+    <EmbeddedResource Include="CSURWebs\assets\css\bootstrap.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\css\icons.css" />
+    <EmbeddedResource Include="CSURWebs\assets\css\pace.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ad.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ae.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\af.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ag.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ai.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\al.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\am.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ao.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\aq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ar.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\as.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\at.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\au.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\aw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ax.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\az.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ba.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\be.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\br.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\by.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\bz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ca.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ch.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ci.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ck.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\co.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\cz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\de.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\dj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\dk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\dm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\do.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\dz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ec.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ee.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\eg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\eh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\er.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\es-ct.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\es.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\et.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\eu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\fr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ga.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gb-eng.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gb-nir.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gb-sct.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gb-wls.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ge.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\gy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\hk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\hm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\hn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\hr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ht.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\hu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\id.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ie.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\il.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\im.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\in.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\io.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\iq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ir.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\is.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\it.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\je.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\jm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\jo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\jp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ke.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ki.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\km.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ky.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\kz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\la.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\li.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ls.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\lv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ly.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ma.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\md.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\me.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ml.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ms.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\my.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\mz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\na.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ne.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ng.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ni.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\no.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\np.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\nz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\om.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pe.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ph.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ps.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\pw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\py.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\qa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\re.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ro.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\rs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ru.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\rw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\se.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\si.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\so.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ss.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\st.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\sz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\td.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\th.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\to.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\tz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ua.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ug.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\um.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\un.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\us.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\uy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\uz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\va.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\vc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ve.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\vg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\vi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\vn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\vu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\wf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ws.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\ye.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\yt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\za.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\zm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\1x1\zw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ad.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ae.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\af.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ag.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ai.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\al.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\am.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ao.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\aq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ar.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\as.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\at.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\au.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\aw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ax.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\az.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ba.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\be.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\br.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\by.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\bz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ca.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ch.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ci.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ck.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\co.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\cz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\de.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\dj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\dk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\dm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\do.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\dz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ec.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ee.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\eg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\eh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\er.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\es-ct.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\es.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\et.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\eu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\fr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ga.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gb-eng.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gb-nir.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gb-sct.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gb-wls.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ge.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\gy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\hk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\hm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\hn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\hr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ht.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\hu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\id.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ie.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\il.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\im.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\in.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\io.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\iq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ir.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\is.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\it.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\je.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\jm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\jo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\jp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ke.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ki.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\km.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ky.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\kz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\la.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\li.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ls.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\lv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ly.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ma.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\md.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\me.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ml.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mo.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mp.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mq.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ms.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\my.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\mz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\na.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ne.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ng.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ni.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\no.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\np.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\nz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\om.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pe.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ph.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ps.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\pw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\py.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\qa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\re.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ro.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\rs.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ru.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\rw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sa.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sb.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sd.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\se.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sh.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\si.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\so.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ss.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\st.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sx.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\sz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\td.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\th.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tj.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tk.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tl.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\to.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tr.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tv.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\tz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ua.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ug.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\um.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\un.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\us.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\uy.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\uz.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\va.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\vc.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ve.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\vg.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\vi.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\vn.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\vu.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\wf.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ws.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\ye.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\yt.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\za.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\zm.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\flags\4x3\zw.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\boxicons.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.svg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-1.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-10.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-11.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-12.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-3.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-4.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-5.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-6.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-7.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-8.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\avatars\avatar-9.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\1.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\3.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\4.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\5.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\6.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\errors-images\404-error.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\errors-images\505-error.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\favicon-32x32.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\01.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\02.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\03.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\05.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\06.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\07.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\08.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\09.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\10.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\11.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\12.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\13.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\14.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\15.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\16.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\17.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\18.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\19.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\20.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\21.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\22.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\23.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\24.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\25.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\26.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\27.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\28.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\29.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\30.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\31.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\32.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\33.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\34.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\35.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\36.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\37.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\38.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\39.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\41.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\gallery\42.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\chrome.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\credit-card-visa.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\edge.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\firefox.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\forgot-2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\laptop.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\mastercard-2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\opera.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\safari.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\shirt.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\smartphone.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\user.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\icons\watch.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\bg-forgot-password.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\bg-lock-screen.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\bg-login-img.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\bg-register-img.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\forgot-password-frent-img.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\login-frent-img.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\login-images\register-frent-img.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\images\logo-csur.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\logo-icon.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\logo-img.png" />
+    <EmbeddedResource Include="CSURWebs\assets\js\app.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\bootstrap.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\bs-custom-file-input.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\index.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\index2.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\jquery.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\pace.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\popper.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\js\widgets.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\apexcharts-bundle\css\apexcharts.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\apexcharts-bundle\js\apex-custom.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\apexcharts-bundle\js\apexcharts.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\bootstrap-material-datetimepicker\css\bootstrap-material-datetimepicker.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\bootstrap-material-datetimepicker\js\bootstrap-material-datetimepicker.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\bootstrap-material-datetimepicker\js\moment.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\chartjs\js\Chart.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\chartjs\js\chartjs-custom.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datatable\css\buttons.bootstrap4.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datatable\css\dataTables.bootstrap4.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datatable\js\jquery.dataTables.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\css\classic.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\css\classic.date.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\css\classic.time.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\js\legacy.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\js\picker.date.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\js\picker.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\datetimepicker\js\picker.time.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\Drag-And-Drop\dist\imageuploadify.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\Drag-And-Drop\dist\imageuploadify.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\edittable\bstable.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_fileupload.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_microphone.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_okay.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_remove.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_upload.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\fancy_webcam.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\image.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\jquery.fancy-fileupload.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\jquery.fileupload.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\jquery.iframe-transport.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fancy-file-uploader\jquery.ui.widget.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fullcalendar\css\main.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\fullcalendar\js\main.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\gmaps\map-custom-script.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\css\highcharts.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\accessibility.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\cylinder.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\export-data.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\exporting.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\funnel3d.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\highcharts-3d.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\highcharts-custom.script.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\highcharts-more.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\highcharts.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\solid-gauge.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\highcharts\js\variable-pie.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\input-tags\css\tagsinput.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\input-tags\js\tagsinput.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\metismenu\css\metisMenu.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\metismenu\js\metisMenu.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\css\lobibox.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\assets\plugins\notifications\img\1.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\assets\plugins\notifications\img\2.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\assets\plugins\notifications\img\3.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\assets\plugins\notifications\img\4.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\assets\plugins\notifications\img\5.jpg" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\lobibox.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\notification-custom-script.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\notifications.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\perfect-scrollbar\css\perfect-scrollbar.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\select2\css\select2-bootstrap4.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\select2\css\select2.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\select2\js\select2.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\simplebar\css\simplebar.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\simplebar\js\simplebar.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\smart-wizard\css\smart_wizard_all.min.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\smart-wizard\js\jquery.smartWizard.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-2.0.2.css" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-2.0.2.min.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-au-mill.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-in-mill.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-uk-mill-en.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-us-aea-en.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jquery-jvectormap-world-mill-en.js" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\vectormap\jvectormap.custom.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ截图20210522122637%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20210523094207461_easyicon_net_48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_b_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CSURWebs\CSUR_tools.html" />
+    <EmbeddedResource Include="CSURWebs\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSUR-master\bin\RoadImporter.dll" />
+    <Content Include="CSUR-master\blender_scripts\model_from_name.py" />
+    <Content Include="CSUR-master\blender_scripts\model_from_structure.py" />
+    <Content Include="CSUR-master\builder\builder.py" />
+    <Content Include="CSUR-master\builder\build_release.py" />
+    <Content Include="CSUR-master\builder\make_release.py" />
+    <Content Include="CSUR-master\builder\__init__.py" />
+    <Content Include="CSUR-master\core\assets.py" />
+    <Content Include="CSUR-master\core\csur.py" />
+    <Content Include="CSUR-master\core\__init__.py" />
+    <Content Include="CSUR-master\csur-sample.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CSUR-master\done.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CSUR-master\graphics\cairo\cairo.dll" />
+    <Content Include="CSUR-master\graphics\cairo\include\py3cairo.h" />
+    <Content Include="CSUR-master\graphics\cairo\__init__.py" />
+    <Content Include="CSUR-master\graphics\graphics.py" />
+    <Content Include="CSUR-master\graphics\img\bike.png" />
+    <Content Include="CSUR-master\graphics\img\csur_logo.png" />
+    <Content Include="CSUR-master\graphics\img\sidewalk.png" />
+    <Content Include="CSUR-master\graphics\img\trafficlight.png" />
+    <Content Include="CSUR-master\graphics\img\twoway.png" />
+    <Content Include="CSUR-master\graphics\thumbnail.py" />
+    <Content Include="CSUR-master\graphics\__init__.py" />
+    <Content Include="CSUR-master\make.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CSUR-master\modeling\blender_utils.py" />
+    <Content Include="CSUR-master\modeling\modeler.py" />
+    <Content Include="CSUR-master\modeling\__init__.py" />
+    <Content Include="CSUR-master\prefab\assetmaker.py" />
+    <Content Include="CSUR-master\prefab\compiler.py" />
+    <Content Include="CSUR-master\prefab\prop_utils.py" />
+    <Content Include="CSUR-master\prefab\xmlserializer.py" />
+    <Content Include="CSUR-master\prefab\__init__.py" />
+    <Content Include="CSUR-master\render.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CSUR-master\RoadElements-master\textures\basic_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\basic_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\elevated_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\fence_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\lane_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\node_r.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\placeholder.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\placeholder2.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_a.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_n.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_s.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\tunnel_d.png" />
+    <Content Include="CSUR-master\RoadElements-master\textures\tunnel_lod_d.png" />
+    <Content Include="CSUR-master\__init__.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="CSURWebs\assets\js\var.js" />
+    <None Include="CSURWebs\assets\images\bg-themes\Artboard1_bg.png" />
+    <None Include="Resources\CSURlogo_3_whit_mid.png" />
+    <None Include="Resources\CSURlogo_3_whit.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\Artboard1.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\bg-themes\Artboard2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\plugins\notifications\js\notification-csur.js" />
+    <EmbeddedResource Include="CSURWebs\assets\images\CSURlogo_2.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\CSURlogo_2_Small.png" />
+    <EmbeddedResource Include="CSURWebs\assets\images\CSURlogo_2_mid.png" />
+    <EmbeddedResource Include="CSURWebs\scroll.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CSUR-master\output\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props'))" />
+    <Error Condition="!Exists('packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props'))" />
+    <Error Condition="!Exists('packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props'))" />
+    <Error Condition="!Exists('packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props'))" />
+    <Error Condition="!Exists('packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props'))" />
+    <Error Condition="!Exists('packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets'))" />
+  </Target>
+  <Import Project="packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets" Condition="Exists('packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets')" />
+</Project>
