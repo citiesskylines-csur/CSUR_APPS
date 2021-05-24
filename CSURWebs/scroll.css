@@ -1,0 +1,11 @@
+.scroller{
+	height: 1px
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+.scroller::-webkit-scrollbar {
+	width:0 !important;
+}
+.top-mar {
+	margin-bottom: 10px;
+}

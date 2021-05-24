@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>Syntrans - Bootstrap4 Admin Template</title>
+		<!--favicon-->
+		<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+		<!-- Vector CSS -->
+		<link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+		<!--plugins-->
+		<link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css">
+		<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+		<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+		<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+		<!-- loader-->
+		<link href="assets/css/pace.min.css" rel="stylesheet" />
+		<script src="assets/js/pace.min.js"></script>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<!-- Icons CSS -->
+		<link rel="stylesheet" href="assets/css/icons.css" />
+		<!-- App CSS -->
+		<link rel="stylesheet" href="assets/css/app.css" />
+		<!-- Scrollbar Style -->
+		<link rel="stylesheet" href="scroll.css" />
+
+
+	</head>
+
+	<body class="bg-theme bg-theme14 scroller" onload="Formium.external.StartCheck.StartCheck()">
+		<!-- wrapper -->
+		<div class="wrapper">
+			<!--sidebar-wrapper-->
+			<div class="sidebar-wrapper" data-simplebar="true">
+				<div class="sidebar-header">
+					<div class="">
+						<img src="assets/images/logo-csur.png" class="logo-icon-2" alt="" />
+					</div>
+					<div>
+						<h4 class="logo-text">CSUR Apps</h4>
+					</div>
+					<a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+					</a>
+				</div>
+				<!--navigation-->
+				<ul class="metismenu radius-15" id="menu">
+					<li>
+						<a href="index.html">
+							<div class="parent-icon"><i class="bx bx-home-alt"></i></div>
+							<div class="menu-title">Dashboard</div>
+						</a>
+					</li>
+					<li class="menu-label">Apps</li>
+					<li>
+						<a href="javascript:;" class="has-arrow">
+							<div class="parent-icon"><i class="bx bx-home-alt"></i></div>
+							<div class="menu-title">Tools</div>
+						</a>
+						<ul>
+							<li> <a href="CSUR_tools.html" aria-expanded="true"><i
+										class="bx bx-right-arrow-alt"></i>CSUR Generator</a>
+							</li>
+							<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>CSUE Generator</a>
+							</li>
+						</ul>
+					</li>
+					<li class="menu-label">Discuss</li>
+					<li>
+						<a href="javascript:;" class="has-arrow">
+							<div class="parent-icon"><i class="bx bx-home-alt"></i></div>
+							<div class="menu-title">Cite:Skylines</div>
+						</a>
+						<ul>
+							<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>CSUR Discuss</a>
+							</li>
+							<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>CSUE Discuss</a>
+							</li>
+						</ul>
+					</li>
+					<li class="menu-label">Links</li>
+				</ul>
+				<!--end navigation-->
+			</div>
+			<!--end sidebar-wrapper-->
+			<!--header-->
+			<header class="top-header d_header" onmousemove="if(event.button == 0){ MoveWindow(); }">
+				<nav class="navbar navbar-expand">
+					<div class="left-topbar d-flex align-items-center">
+						<a href="javascript:;" class="toggle-btn"> <i class="bx bx-menu"></i>
+						</a>
+					</div>
+					<div class="flex-grow-1 search-bar">
+						<div class="input-group">
+							<div class="input-group-prepend search-arrow-back">
+								<button class="btn btn-search-back" type="button"><i class="bx bx-arrow-back"></i>
+								</button>
+							</div>
+							<input type="text" class="form-control" placeholder="search from wiki" />
+							<div class="input-group-append">
+								<button class="btn btn-search" type="button"><i class="lni lni-search-alt"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="right-topbar ml-auto">
+						<ul class="navbar-nav">
+							<li class="nav-item search-btn-mobile">
+								<a class="nav-link position-relative" href="javascript:;"> <i
+										class="bx bx-search vertical-align-middle"></i>
+								</a>
+							</li>
+							<li class="nav-item dropdown dropdown-user-profile">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
+									data-toggle="dropdown">
+									<div class="media user-box align-items-center">
+										<div class="media-body user-info">
+											<p class="user-name mb-0">Jessica Doe</p>
+											<p class="designattion mb-0">Available</p>
+										</div>
+										<img src="assets/images/avatars/avatar-1.png" class="user-img"
+											alt="user avatar">
+									</div>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item"
+										href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
+									<a class="dropdown-item" href="javascript:;"><i
+											class="bx bx-cog"></i><span>Settings</span></a>
+									<div class="dropdown-divider mb-0"></div> <a class="dropdown-item"
+										href="javascript:;"><i class="bx bx-power-off"></i><span>Logout</span></a>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-language">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
+									data-toggle="dropdown">
+									<div class="lang d-flex">
+										<div><i class="flag-icon flag-icon-um"></i>
+										</div>
+										<div><span>En</span>
+										</div>
+									</div>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="javascript:;"><i
+											class="flag-icon flag-icon-cn"></i><span>Chinese</span></a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a formium-command="close" class="command_header"><svg
+										xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" class="feather feather-x-circle">
+										<circle cx="12" cy="12" r="10"></circle>
+										<line x1="15" y1="9" x2="9" y2="15"></line>
+										<line x1="9" y1="9" x2="15" y2="15"></line>
+									</svg></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!--end header-->
+			<!--page-wrapper-->
+			<div class="page-wrapper">
+				<!--page-content-wrapper-->
+				<div class="page-content-wrapper">
+					<div class="page-content">
+						<div class="row">
+							<div class="col-8">
+								<div class="card radius-15">
+									<div class="card-body">
+										<h2 class="card-title">Environment Check</h2>
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+													<tr>
+														<th scope="col">Item</th>
+														<th scope="col">Installed</th>
+														<th scope="col">Verison</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>CSUR Master</td>
+														<td id="CRM">#</td>
+														<td>#</td>
+													</tr>
+													<tr>
+														<td>Blender</td>
+														<td id="Blender_in">#</td>
+														<td>#</td>
+													</tr>
+													<tr>
+														<td>CSL Path</td>
+														<td id="Path">#</td>
+														<td>#</td>
+													</tr>
+													<tr>
+														<td>Roadimporter</td>
+														<td id="RI_Mods">#</td>
+														<td>#</td>
+													</tr>
+													<tr>
+														<td>Textures Pack</td>
+														<td id="TP_iNS">#</td>
+														<td>#</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card radius-15">
+									<div class="card-body">
+										<h2 class="card-title">Links</h2>
+										<h6 class="text-justify"><a href="https://www.blender.org/">Blender</a></h6>
+										<h6 class="text-justify"><a
+												href="https://pan.baidu.com/s/1lmJ3XeYVSiV9mZS4jYDXRQ ">
+												CSURMaster(CSUR)</a></h6>
+										<h6 class="text-justify"><a href="https://www.csur.fun/">CSUR Website</a></h6>
+										<h6 class="text-justify"><a
+												href="http://wiki.nas-phantom.net/wiki/mediawiki-1.35.2/index.php?title=%E9%A6%96%E9%A1%B5">
+												Cite:SkylinesWiki</a></h6>
+										<hr />
+										<h6 class="text-justify"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1959216109">Steam CSUR Workshop</a></h6>
+										<h6 class="text-justify"><a href="https://github.com/citiesskylines-csur/CSUR-Document/tree/master/CSUR-Docs">CSUR Docs</a></h6>
+										<br />
+										<img src="assets/images/CSURlogo_2_mid.png"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="card radius-15">
+									<div class="card-body">
+										<h2 class="card-title">Options</h2>
+										<hr />
+										<button type="button" class="btn btn-outline-success m-2 px-5 radius-30">Check
+											Update</button>
+										<button type="button" class="btn btn-outline-success m-2 px-5 radius-30">
+											Install Environment
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="card radius-15">
+									<div class="card-body">
+										<h2 class="card-title">Generator</h2>
+										<hr />
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text" id="inputGroup-sizing-default">Road
+													Name</span>
+											</div>
+											<input type="text" class="form-control" id="roadcode" aria-label="Sizing example input"
+												aria-describedby="inputGroup-sizing-default"
+												placeholder="Generate multiple modules please use , to separate">
+											<div class="input-group-prepend">
+												<button class="btn btn-light" type="button"
+													onclick="var_roadname()">Generate</button>
+											</div>
+										</div>
+										<div class="custom-checkbox custom-switch">
+											<input type="checkbox" class="custom-control-input" id="CNMan1" />
+											<label class="custom-control-label" for="CNMan1">
+												Filp
+											</label>
+										</div>
+										<div class="custom-checkbox custom-switch">
+											<input type="radio" name="customRadioInline1" class="custom-control-input" id="CNMan2" />
+											<label class="custom-control-label" for="CNMan2">
+												Express
+											</label>
+										</div>
+										<div class="custom-checkbox custom-switch">
+											<input type="radio" name="customRadioInline1" class="custom-control-input" id="CNMan3" />
+											<label class="custom-control-label" for="CNMan3">
+												Compress
+											</label>
+										</div>
+										<hr />
+										<h4 class="card-title">Generator explain</h4>
+										<p>
+											This article gives a tutorial about creating custom CSUR road assets for
+											Cities:Skylines. All requires steps are numbered.<br />
+											<br />
+											You don't need to know anything about 3D modeling, asset creation or modding
+											in Cities:Skylines. Just correctly follow the steps and you will be able to
+											make your own road asset.<br />
+											You are NOT allowed to publish custom CSUR assets on your behalf. Due to how
+											the models and textures for CSUR are licensed, any public distribution of
+											CSUR assets must be made by the CSUR development team.<br />
+											In case the same road asset created by yourself is also available on the
+											Workshop, you should not delete your own one because the game regards them
+											as two different assets despite the appearance and functionalities are
+											identical.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end page-content-wrapper-->
+			</div>
+			<!--end page-wrapper-->
+			<!--start overlay-->
+			<div class="overlay toggle-btn-mobile"></div>
+			<!--end overlay-->
+			<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i
+					class='bx bxs-up-arrow-alt'></i></a>
+			<!--End Back To Top Button-->
+			<!--footer -->
+			<div class="footer">
+				<p class="mb-0">PhantomCTS @2021 | Developed By : <a href="http://www.bootstrapmb.com/"
+						target="_blank">codervent</a>
+				</p>
+			</div>
+			<!-- end footer -->
+		</div>
+		<!-- end wrapper -->
+		<!--start switcher-->
+		<div class="switcher-wrapper">
+			<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+			</div>
+			<div class="switcher-body">
+				<h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+				<hr />
+				<p class="mb-0">Gaussion Texture</p>
+				<hr>
+
+				<ul class="switcher">
+					<li id="theme1"></li>
+					<li id="theme2"></li>
+					<li id="theme3"></li>
+					<li id="theme4"></li>
+					<li id="theme5"></li>
+					<li id="theme6"></li>
+				</ul>
+				<hr>
+				<p class="mb-0">Gradient Background</p>
+				<hr>
+
+				<ul class="switcher">
+					<li id="theme7"></li>
+					<li id="theme8"></li>
+					<li id="theme9"></li>
+					<li id="theme10"></li>
+					<li id="theme11"></li>
+					<li id="theme12"></li>
+				</ul>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.d_header {
+				-webkit-app-region: drag;
+			}
+
+			.command_header {
+				-webkit-app-region: no-drag;
+			}
+		</style>
+		<!--end switcher-->
+		<!-- JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!--plugins-->
+		<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+		<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+		<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+		<script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+		<script src="assets/plugins/notifications/js/notifications.min.js"></script>
+		<script src="assets/plugins/notifications/js/notification-custom-script.js"></script>
+		<script src="assets/plugins/notifications/js/notification-csur.js"></script>
+		<!--CSUR Genera Tools-->
+		<script src="assets/js/var.js"></script>
+		<!-- Vector map JavaScript -->
+		<script src="assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+		<script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+		<script src="assets/plugins/vectormap/jquery-jvectormap-in-mill.js"></script>
+		<script src="assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+		<script src="assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js"></script>
+		<script src="assets/plugins/vectormap/jquery-jvectormap-au-mill.js"></script>
+		<script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+		<script src="assets/js/index.js"></script>
+		<!-- App JS -->
+		<script src="assets/js/app.js"></script>
+		<script>
+			new PerfectScrollbar('.dashboard-social-list');
+			new PerfectScrollbar('.dashboard-top-countries');
+		</script>
+	</body>
+
+</html>
