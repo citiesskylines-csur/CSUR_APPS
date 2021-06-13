@@ -8,6 +8,7 @@ using NetDimension.NanUI.HostWindow;
 using NetDimension.NanUI.EmbeddedFileResource;
 using NetDimension.NanUI.JavaScript;
 using System.Reflection;
+using System.IO;
 
 namespace CSUR.Apps
 {

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props" Condition="Exists('packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props')" />
-  <Import Project="packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props" Condition="Exists('packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props')" />
-  <Import Project="packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props" Condition="Exists('packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props')" />
-  <Import Project="packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props" Condition="Exists('packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props')" />
+  <Import Project="packages\Vortice.Direct2D1.1.8.53\build\netstandard2.0\Vortice.Direct2D1.props" Condition="Exists('packages\Vortice.Direct2D1.1.8.53\build\netstandard2.0\Vortice.Direct2D1.props')" />
+  <Import Project="packages\Vortice.DXGI.1.8.53\build\netstandard2.0\Vortice.DXGI.props" Condition="Exists('packages\Vortice.DXGI.1.8.53\build\netstandard2.0\Vortice.DXGI.props')" />
+  <Import Project="packages\Vortice.DirectX.1.8.53\build\netstandard2.0\Vortice.DirectX.props" Condition="Exists('packages\Vortice.DirectX.1.8.53\build\netstandard2.0\Vortice.DirectX.props')" />
+  <Import Project="packages\SharpGen.Runtime.COM.1.2.0\build\netstandard1.1\SharpGen.Runtime.COM.props" Condition="Exists('packages\SharpGen.Runtime.COM.1.2.0\build\netstandard1.1\SharpGen.Runtime.COM.props')" />
   <Import Project="packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props" Condition="Exists('packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props')" />
+  <Import Project="packages\Vortice.Runtime.COM.1.8.59\build\netstandard2.0\Vortice.Runtime.COM.props" Condition="Exists('packages\Vortice.Runtime.COM.1.8.59\build\netstandard2.0\Vortice.Runtime.COM.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -19,6 +20,23 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\CSUR_Winform\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -29,6 +47,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,15 +58,62 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>78D17EB952778D41EE3BE19DB9EB40AC46D915C4</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CSUR Apps_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0-preview.4.21253.7\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
-    <Reference Include="NetDimension.NanUI, Version=0.8.80.191, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\NetDimension.NanUI.0.8.80.191\lib\net472\NetDimension.NanUI.dll</HintPath>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetDimension.NanUI, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.0.8.80.176\lib\net472\NetDimension.NanUI.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDimension.NanUI.DataServiceResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.DataServiceResource.0.8.80.176\lib\net472\NetDimension.NanUI.DataServiceResource.dll</HintPath>
     </Reference>
     <Reference Include="NetDimension.NanUI.EmbeddedFileResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NetDimension.NanUI.EmbeddedFileResource.0.8.80.176\lib\net472\NetDimension.NanUI.EmbeddedFileResource.dll</HintPath>
@@ -55,32 +121,158 @@
     <Reference Include="NetDimension.NanUI.LocalFileResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NetDimension.NanUI.LocalFileResource.0.8.80.176\lib\net472\NetDimension.NanUI.LocalFileResource.dll</HintPath>
     </Reference>
+    <Reference Include="NetDimension.NanUI.ZippedResource, Version=0.8.80.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NetDimension.NanUI.ZippedResource.0.8.80.176\lib\net472\NetDimension.NanUI.ZippedResource.dll</HintPath>
+    </Reference>
     <Reference Include="SharpGen.Runtime, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\SharpGen.Runtime.1.2.1\lib\netstandard2.0\SharpGen.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="SharpGen.Runtime.COM, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SharpGen.Runtime.COM.1.2.0\lib\netstandard1.1\SharpGen.Runtime.COM.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Json, Version=2.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.Json.4.7.1\lib\net461\System.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Text.Json.5.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0-preview.4.21253.7\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.6.0.0-preview.4.21253.7\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.6.0.0-preview.4.21253.7\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -94,23 +286,27 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Vortice.Direct2D1, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Vortice.Direct2D1.1.8.54\lib\netstandard2.0\Vortice.Direct2D1.dll</HintPath>
+      <HintPath>packages\Vortice.Direct2D1.1.8.53\lib\netstandard2.0\Vortice.Direct2D1.dll</HintPath>
     </Reference>
     <Reference Include="Vortice.DirectX, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Vortice.DirectX.1.8.54\lib\netstandard2.0\Vortice.DirectX.dll</HintPath>
+      <HintPath>packages\Vortice.DirectX.1.8.53\lib\netstandard2.0\Vortice.DirectX.dll</HintPath>
     </Reference>
     <Reference Include="Vortice.DXGI, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Vortice.DXGI.1.8.54\lib\netstandard2.0\Vortice.DXGI.dll</HintPath>
+      <HintPath>packages\Vortice.DXGI.1.8.53\lib\netstandard2.0\Vortice.DXGI.dll</HintPath>
     </Reference>
     <Reference Include="Vortice.Mathematics, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Vortice.Mathematics.1.3.3\lib\netstandard2.0\Vortice.Mathematics.dll</HintPath>
+      <HintPath>packages\Vortice.Mathematics.1.3.1\lib\netstandard2.0\Vortice.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Vortice.Runtime.COM, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Vortice.Runtime.COM.1.8.54\lib\netstandard2.0\Vortice.Runtime.COM.dll</HintPath>
+      <HintPath>packages\Vortice.Runtime.COM.1.8.59\lib\netstandard2.0\Vortice.Runtime.COM.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -142,169 +338,171 @@
     <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.ttf" />
     <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.woff" />
     <EmbeddedResource Include="CSURWebs\assets\fonts\LineIcons.woff2" />
+    <None Include="CSUR Apps_TemporaryKey.pfx" />
     <None Include="CSUR-master\.gitignore">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="CSUR-master\AUTHORS">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CSUR-master\core\__pycache__\assets.cpython-37.pyc" />
-    <None Include="CSUR-master\core\__pycache__\csur.cpython-37.pyc" />
-    <None Include="CSUR-master\core\__pycache__\__init__.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\core\__pycache__\assets.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\core\__pycache__\csur.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\core\__pycache__\__init__.cpython-37.pyc" />
     <None Include="CSUR-master\csur.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CSUR-master\graphics\cairo\py.typed" />
-    <None Include="CSUR-master\graphics\cairo\README.md" />
-    <None Include="CSUR-master\graphics\cairo\_cairo.cp37-win_amd64.pyd" />
-    <None Include="CSUR-master\graphics\cairo\__init__.pyi" />
-    <None Include="CSUR-master\graphics\cairo\__pycache__\__init__.cpython-37.pyc" />
-    <None Include="CSUR-master\graphics\color.ini" />
-    <None Include="CSUR-master\graphics\__pycache__\graphics.cpython-37.pyc" />
-    <None Include="CSUR-master\graphics\__pycache__\thumbnail.cpython-37.pyc" />
-    <None Include="CSUR-master\graphics\__pycache__\__init__.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\py.typed" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\README.md" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\_cairo.cp37-win_amd64.pyd" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\__init__.pyi" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\__pycache__\__init__.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\graphics\color.ini" />
+    <EmbeddedResource Include="CSUR-master\graphics\__pycache__\graphics.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\graphics\__pycache__\thumbnail.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\graphics\__pycache__\__init__.cpython-37.pyc" />
     <None Include="CSUR-master\LICENSE">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="CSUR-master\make.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CSUR-master\modeling\__pycache__\blender_utils.cpython-37.pyc" />
-    <None Include="CSUR-master\modeling\__pycache__\modeler.cpython-37.pyc" />
-    <None Include="CSUR-master\modeling\__pycache__\__init__.cpython-37.pyc" />
-    <None Include="CSUR-master\prefab\templates\lane\barrier.json" />
-    <None Include="CSUR-master\prefab\templates\lane\bike.json" />
-    <None Include="CSUR-master\prefab\templates\lane\car.json" />
-    <None Include="CSUR-master\prefab\templates\lane\median.json" />
-    <None Include="CSUR-master\prefab\templates\lane\ped.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\barrier_l.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\barrier_r.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\bike_l.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\bike_r.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\car_l.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\car_r.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\ped_l.json" />
-    <None Include="CSUR-master\prefab\templates\lane_old\ped_r.json" />
-    <None Include="CSUR-master\prefab\templates\netinfo\basic.json" />
-    <None Include="CSUR-master\prefab\templates\netinfo\bridge.json" />
-    <None Include="CSUR-master\prefab\templates\netinfo\elevated.json" />
-    <None Include="CSUR-master\prefab\templates\netinfo\slope.json" />
-    <None Include="CSUR-master\prefab\templates\netinfo\tunnel.json" />
-    <None Include="CSUR-master\prefab\templates\net_ai\basic.json" />
-    <None Include="CSUR-master\prefab\templates\net_ai\bridge.json" />
-    <None Include="CSUR-master\prefab\templates\net_ai\elevated.json" />
-    <None Include="CSUR-master\prefab\templates\net_ai\slope.json" />
-    <None Include="CSUR-master\prefab\templates\net_ai\tunnel.json" />
-    <None Include="CSUR-master\prefab\templates\node_presets.json" />
-    <None Include="CSUR-master\prefab\templates\pillars.json" />
-    <None Include="CSUR-master\prefab\templates\props.json" />
-    <None Include="CSUR-master\prefab\templates\segment_presets.json" />
-    <None Include="CSUR-master\prefab\templates\skins.json" />
-    <None Include="CSUR-master\prefab\__pycache__\assetmaker.cpython-37.pyc" />
-    <None Include="CSUR-master\prefab\__pycache__\compiler.cpython-37.pyc" />
-    <None Include="CSUR-master\prefab\__pycache__\prop_utils.cpython-37.pyc" />
-    <None Include="CSUR-master\prefab\__pycache__\xmlserializer.cpython-37.pyc" />
-    <None Include="CSUR-master\prefab\__pycache__\__init__.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\modeling\__pycache__\blender_utils.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\modeling\__pycache__\modeler.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\modeling\__pycache__\__init__.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane\barrier.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane\bike.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane\car.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane\median.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane\ped.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\barrier_l.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\barrier_r.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\bike_l.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\bike_r.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\car_l.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\car_r.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\ped_l.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\lane_old\ped_r.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\netinfo\basic.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\netinfo\bridge.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\netinfo\elevated.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\netinfo\slope.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\netinfo\tunnel.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\net_ai\basic.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\net_ai\bridge.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\net_ai\elevated.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\net_ai\slope.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\net_ai\tunnel.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\node_presets.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\pillars.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\props.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\segment_presets.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\templates\skins.json" />
+    <EmbeddedResource Include="CSUR-master\prefab\__pycache__\assetmaker.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\prefab\__pycache__\compiler.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\prefab\__pycache__\prop_utils.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\prefab\__pycache__\xmlserializer.cpython-37.pyc" />
+    <EmbeddedResource Include="CSUR-master\prefab\__pycache__\__init__.cpython-37.pyc" />
     <None Include="CSUR-master\README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="CSUR-master\Readme_jp.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CSUR-master\RoadElements-master\LICENSE" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\中间带.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\人行道.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\护栏.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板单向.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板双向.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\bridge\纵梁.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam_seperator.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_full.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_half.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\gore.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\joint.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bikelane.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\curb.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\curb_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\ground\wall.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_center.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_right.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\dashed_line.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed_single.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_single.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_center.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_channel.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_full.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_left.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_right.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\lane\white_line.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt_small.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\central_median.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\curb.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\curb_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\side_median.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\node\stop_line.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch2.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\arch_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\median.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\median_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\roof.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\slope\roof_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\fence.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\fence_lod.FBX" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\arrow.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\gore.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof.fbx" />
-    <None Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof_lod.fbx" />
-    <None Include="CSUR-master\RoadElements-master\README.md" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\LICENSE" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\中间带.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\人行道.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\护栏.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板单向.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\桥板双向.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\bridge\纵梁.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\barrier_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\beam_seperator.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_full.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\deck_half.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\elv_median_half_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\gore.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\joint.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\elevated\sound_barrier_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bikelane.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_median_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\brt_station_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_road_nobike_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\bus_side_nobike_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\curb.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\curb_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\median_full_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\median_half_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\sidewalk_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\ground\wall.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_center.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\channel_right.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\dashed_line.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_dashed_single.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\divide_line_single.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_center.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_channel.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_full.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_left.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\lane_right.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\lane\white_line.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\asphalt_small.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\central_median.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\curb.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\curb_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_nocrossing_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\sidewalk_small_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\side_median.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\node\stop_line.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\arch.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\arch2.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\arch_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\barrier_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\median.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\median_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\roof.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\slope\roof_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\fence.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\fence_lod.FBX" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-3L_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-4L_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\special\uturn-5L_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\arrow.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\barrier_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\gore.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\median_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\model_fbx\tunnel\roof_lod.fbx" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\README.md" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1026,97 +1224,104 @@
     <EmbeddedResource Include="CSURWebs\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSUR-master\bin\RoadImporter.dll" />
-    <Content Include="CSUR-master\blender_scripts\model_from_name.py" />
-    <Content Include="CSUR-master\blender_scripts\model_from_structure.py" />
-    <Content Include="CSUR-master\builder\builder.py" />
-    <Content Include="CSUR-master\builder\build_release.py" />
-    <Content Include="CSUR-master\builder\make_release.py" />
-    <Content Include="CSUR-master\builder\__init__.py" />
-    <Content Include="CSUR-master\core\assets.py" />
-    <Content Include="CSUR-master\core\csur.py" />
-    <Content Include="CSUR-master\core\__init__.py" />
+    <EmbeddedResource Include="CSURWebs\errors-404-error.html" />
+    <EmbeddedResource Include="CSUR-master\bin\RoadImporter.dll" />
+    <EmbeddedResource Include="CSUR-master\blender_scripts\model_from_name.py" />
+    <EmbeddedResource Include="CSUR-master\blender_scripts\model_from_structure.py" />
+    <EmbeddedResource Include="CSUR-master\builder\builder.py" />
+    <EmbeddedResource Include="CSUR-master\builder\build_release.py" />
+    <EmbeddedResource Include="CSUR-master\builder\make_release.py" />
+    <EmbeddedResource Include="CSUR-master\builder\__init__.py" />
+    <EmbeddedResource Include="CSUR-master\core\assets.py" />
+    <EmbeddedResource Include="CSUR-master\core\csur.py" />
+    <EmbeddedResource Include="CSUR-master\core\__init__.py" />
     <Content Include="CSUR-master\csur-sample.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CSUR-master\done.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CSUR-master\graphics\cairo\cairo.dll" />
-    <Content Include="CSUR-master\graphics\cairo\include\py3cairo.h" />
-    <Content Include="CSUR-master\graphics\cairo\__init__.py" />
-    <Content Include="CSUR-master\graphics\graphics.py" />
-    <Content Include="CSUR-master\graphics\img\bike.png" />
-    <Content Include="CSUR-master\graphics\img\csur_logo.png" />
-    <Content Include="CSUR-master\graphics\img\sidewalk.png" />
-    <Content Include="CSUR-master\graphics\img\trafficlight.png" />
-    <Content Include="CSUR-master\graphics\img\twoway.png" />
-    <Content Include="CSUR-master\graphics\thumbnail.py" />
-    <Content Include="CSUR-master\graphics\__init__.py" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\cairo.dll" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\include\py3cairo.h" />
+    <EmbeddedResource Include="CSUR-master\graphics\cairo\__init__.py" />
+    <EmbeddedResource Include="CSUR-master\graphics\graphics.py" />
+    <EmbeddedResource Include="CSUR-master\graphics\img\bike.png" />
+    <EmbeddedResource Include="CSUR-master\graphics\img\csur_logo.png" />
+    <EmbeddedResource Include="CSUR-master\graphics\img\sidewalk.png" />
+    <EmbeddedResource Include="CSUR-master\graphics\img\trafficlight.png" />
+    <EmbeddedResource Include="CSUR-master\graphics\img\twoway.png" />
+    <EmbeddedResource Include="CSUR-master\graphics\thumbnail.py" />
+    <EmbeddedResource Include="CSUR-master\graphics\__init__.py" />
     <Content Include="CSUR-master\make.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CSUR-master\modeling\blender_utils.py" />
-    <Content Include="CSUR-master\modeling\modeler.py" />
-    <Content Include="CSUR-master\modeling\__init__.py" />
-    <Content Include="CSUR-master\prefab\assetmaker.py" />
-    <Content Include="CSUR-master\prefab\compiler.py" />
-    <Content Include="CSUR-master\prefab\prop_utils.py" />
-    <Content Include="CSUR-master\prefab\xmlserializer.py" />
-    <Content Include="CSUR-master\prefab\__init__.py" />
+    <EmbeddedResource Include="CSUR-master\modeling\blender_utils.py" />
+    <EmbeddedResource Include="CSUR-master\modeling\modeler.py" />
+    <EmbeddedResource Include="CSUR-master\modeling\__init__.py" />
+    <EmbeddedResource Include="CSUR-master\prefab\assetmaker.py" />
+    <EmbeddedResource Include="CSUR-master\prefab\compiler.py" />
+    <EmbeddedResource Include="CSUR-master\prefab\prop_utils.py" />
+    <EmbeddedResource Include="CSUR-master\prefab\xmlserializer.py" />
+    <EmbeddedResource Include="CSUR-master\prefab\__init__.py" />
     <Content Include="CSUR-master\render.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CSUR-master\RoadElements-master\textures\basic_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\basic_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\brt_platform_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_lod_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\elevated_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_lod_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\fence_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_lod_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\lane_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\nodesmall_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_lod_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\node_r.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\placeholder.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\placeholder2.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_a.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_n.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\soundbarrier_s.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\tunnel_d.png" />
-    <Content Include="CSUR-master\RoadElements-master\textures\tunnel_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\basic_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\basic_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\brt_platform_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\brt_platform_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\brt_platform_lod_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\brt_platform_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_lod_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_lod_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\elevated_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_lod_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_lod_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\fence_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_lod_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_lod_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\lane_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_lod_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\nodesmall_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_lod_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_lod_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\node_r.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\placeholder.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\placeholder2.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_a.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_lod_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_n.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\soundbarrier_s.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\tunnel_d.png" />
+    <EmbeddedResource Include="CSUR-master\RoadElements-master\textures\tunnel_lod_d.png" />
     <Content Include="CSUR-master\__init__.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="CSURWebs\Sounds\sound1.ogg" />
+    <EmbeddedResource Include="CSURWebs\Sounds\sound2.ogg" />
+    <EmbeddedResource Include="CSURWebs\Sounds\sound3.ogg" />
+    <EmbeddedResource Include="CSURWebs\Sounds\sound4.ogg" />
+    <EmbeddedResource Include="CSURWebs\Sounds\sound5.ogg" />
+    <EmbeddedResource Include="CSURWebs\Sounds\sound6.ogg" />
     <EmbeddedResource Include="CSURWebs\assets\js\var.js" />
     <None Include="CSURWebs\assets\images\bg-themes\Artboard1_bg.png" />
     <None Include="Resources\CSURlogo_3_whit_mid.png" />
@@ -1132,17 +1337,30 @@
   <ItemGroup>
     <Folder Include="CSUR-master\output\" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props'))" />
-    <Error Condition="!Exists('packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Runtime.COM.1.8.54\build\netstandard2.0\Vortice.Runtime.COM.props'))" />
-    <Error Condition="!Exists('packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DirectX.1.8.54\build\netstandard2.0\Vortice.DirectX.props'))" />
-    <Error Condition="!Exists('packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DXGI.1.8.54\build\netstandard2.0\Vortice.DXGI.props'))" />
-    <Error Condition="!Exists('packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Direct2D1.1.8.54\build\netstandard2.0\Vortice.Direct2D1.props'))" />
     <Error Condition="!Exists('packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets'))" />
+    <Error Condition="!Exists('packages\Vortice.Runtime.COM.1.8.59\build\netstandard2.0\Vortice.Runtime.COM.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Runtime.COM.1.8.59\build\netstandard2.0\Vortice.Runtime.COM.props'))" />
+    <Error Condition="!Exists('packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpGen.Runtime.1.2.1\build\SharpGen.Runtime.props'))" />
+    <Error Condition="!Exists('packages\SharpGen.Runtime.COM.1.2.0\build\netstandard1.1\SharpGen.Runtime.COM.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpGen.Runtime.COM.1.2.0\build\netstandard1.1\SharpGen.Runtime.COM.props'))" />
+    <Error Condition="!Exists('packages\Vortice.DirectX.1.8.53\build\netstandard2.0\Vortice.DirectX.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DirectX.1.8.53\build\netstandard2.0\Vortice.DirectX.props'))" />
+    <Error Condition="!Exists('packages\Vortice.DXGI.1.8.53\build\netstandard2.0\Vortice.DXGI.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.DXGI.1.8.53\build\netstandard2.0\Vortice.DXGI.props'))" />
+    <Error Condition="!Exists('packages\Vortice.Direct2D1.1.8.53\build\netstandard2.0\Vortice.Direct2D1.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Vortice.Direct2D1.1.8.53\build\netstandard2.0\Vortice.Direct2D1.props'))" />
   </Target>
   <Import Project="packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets" Condition="Exists('packages\NetDimension.NanUI.Runtime.80.1.15\build\NetDimension.NanUI.Runtime.targets')" />
 </Project>
