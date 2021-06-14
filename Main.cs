@@ -100,12 +100,6 @@ namespace CSUR.Apps
             //ShowDevTools();
         }
 
-
-        private void LoginmodeCheck()
-        {
-
-        }
-
         private void Envirment_Check()
         {
             var Envir = JavaScriptValue.CreateObject();
@@ -338,15 +332,42 @@ namespace CSUR.Apps
             }
         }
 
-        private void get_install_envir_dll(object source, ElapsedEventArgs e)//暂时无用
+        private async void get_install_envir_dll(object source, ElapsedEventArgs e)
         {
-            if (Installation._install_status_mod == true)
+            if (Installation._instal_callback_mod != "" && Installation._instal_callback_blender != "" && Installation._instal_callback_texture != "")
             {
-
-            }
-            else if (Installation._install_status_mod == false)
-            {
-
+                if(Installation._install_status_mod == true)
+                {
+                    await EvaluateJavaScriptAsync(@"mod_instal_success()");
+                }
+                if(Installation._install_status_blender == true)
+                {
+                    await EvaluateJavaScriptAsync(@"blender_instal_success()");
+                }
+                if(Installation._install_status_texture == true)
+                {
+                    await EvaluateJavaScriptAsync(@"texture_instal_success()");
+                }
+                if(Installation._install_status_mod == true && Installation._install_status_blender == true && Installation._install_status_texture == true)
+                {
+                    await EvaluateJavaScriptAsync(@"load_modal_close()");
+                }
+                if (Installation._install_status_mod == false)
+                {
+                    await EvaluateJavaScriptAsync(@"mod_instal_error('" + Installation._instal_callback_mod + "')");
+                    await EvaluateJavaScriptAsync(@"document.getElementById('RI_Mods').innerHTML = 'Install Failed';");
+                }
+                if (Installation._install_status_blender == false)
+                {
+                    await EvaluateJavaScriptAsync(@"blender_instal_error('" + Installation._instal_callback_blender + "')");
+                    await EvaluateJavaScriptAsync(@"document.getElementById('Blender_in').innerHTML = 'Install Failed';");
+                }
+                if (Installation._install_status_texture == false)
+                {
+                    await EvaluateJavaScriptAsync(@"blender_instal_error('" + Installation._instal_callback_texture + "')");
+                    await EvaluateJavaScriptAsync(@"document.getElementById('TP_iNS').innerHTML = 'Install Failed';");
+                }
+                getInsall_envir_dll.Stop();
             }
         }
         private void Generator()
@@ -492,36 +513,20 @@ namespace CSUR.Apps
                     //getInsall_envir_dll.AutoReset = true;
                     //getInsall_envir_dll.Enabled = false;
                     //getInsall_envir_dll.Start();
-                    Thread t1_instal;
-                    t1_instal = new Thread(Installation._install_all);
-                    t1_instal.Start();
-                    t1_instal.Join();
-                    if (Installation._install_status_mod == true)
+                    try
                     {
-                        await EvaluateJavaScriptAsync(@"mod_instal_success()");
+                        Thread t1_instal;
+                        t1_instal = new Thread(Installation._install_all);
+                        t1_instal.Start();
+                        //t1_instal.Join();
+                        getInsall_envir_dll.Interval = 1100;
+                        getInsall_envir_dll.Elapsed += new ElapsedEventHandler(get_install_envir_dll);
+                        getInsall_envir_dll.AutoReset = true;
+                        getInsall_envir_dll.Enabled = true;
                     }
-                    else
+                    catch(ApplicationException e)
                     {
-                        await EvaluateJavaScriptAsync(@"mod_instal_error('"+ Installation._instal_callback_mod +"')");
-                        await EvaluateJavaScriptAsync(@"document.getElementById('RI_Mods').innerHTML = 'Install Failed';");
-                    }
-                    if (Installation._install_status_blender == true)
-                    {
-                        await EvaluateJavaScriptAsync(@"blender_instal_success()");
-                    }
-                    else
-                    {
-                        await EvaluateJavaScriptAsync(@"blender_instal_error('" + Installation._instal_callback_blender + "')");
-                        await EvaluateJavaScriptAsync(@"document.getElementById('Blender_in').innerHTML = 'Install Failed';");
-                    }
-                    if (Installation._install_status_texture == true)
-                    {
-                        await EvaluateJavaScriptAsync(@"texture_instal_success()");
-                    }
-                    else
-                    {
-                        await EvaluateJavaScriptAsync(@"blender_instal_error('" + Installation._instal_callback_texture + "')");
-                        await EvaluateJavaScriptAsync(@"document.getElementById('TP_iNS').innerHTML = 'Install Failed';");
+                        MessageBox.Show(e.ToString());
                     }
                 });
                 return JavaScriptValue.CreateString("OK");

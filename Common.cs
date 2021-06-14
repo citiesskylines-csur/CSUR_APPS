@@ -31,7 +31,7 @@ namespace CSUR.Apps
         public static string getRoadimporter_CO()
         {
             string _userName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string destDir = _userName + @"\Colossal Order\Cities_Skylines\RoadImporter";
+            string destDir = _userName + "\\Colossal Order\\Cities_Skylines\\RoadImporter";
             return destDir;
         }
 
@@ -44,7 +44,7 @@ namespace CSUR.Apps
         public static string getRoadimporter_Mods()
         {
             string _userName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string destDir = _userName + @"\Colossal Order\Cities_Skylines\Addons\Mods\Roadimporter";
+            string destDir = _userName + "\\Colossal Order\\Cities_Skylines\\Addons\\Mods\\Roadimporter";
             return destDir;
         } 
 
@@ -425,7 +425,12 @@ namespace CSUR.Apps
             {
                 if (Directory.Exists(Common.GetCRMPath() + "\\Bin") == true)//其次判断代码仓库的bin文件夹是否存在
                 {
-                    if (File.Exists(Common.GetCRMPath() + "\\Bin\\Roadimporter.dll") == true)//最后判断MOD的文件是否存在
+                    if (File.Exists(Common.getRoadimporter_Mods() + "\\Roadimporter.dll") == true)
+                    {
+                        _instal_callback_mod = "Mods installed";
+                        _install_status_mod = true;
+                    }
+                    else if (File.Exists(Common.GetCRMPath() + "\\Bin\\Roadimporter.dll") == true)//最后判断MOD的文件是否存在
                     {
                         _install_dll();//如果存在进行安装
                         _instal_callback_mod = "Mods installed";
@@ -479,12 +484,12 @@ namespace CSUR.Apps
             {
                 _instal_callback_blender = "Blender not install first.";
             }
-            if (Directory.Exists(Common.getRoadimporter_CO() + "\\Textures") == true)
+            if (Directory.Exists(Common.getRoadimporter_CO() + "\\RoadElements-master\\textures") == true)
             {
                 _install_status_texture = true;
                 _instal_callback_texture = "Texture OK";
             }
-            else if (Directory.Exists(Common.getRoadimporter_CO() + "\\Textures") == false)
+            else if (Directory.Exists(Common.getRoadimporter_CO() + "\\RoadElements-master\\textures") == false)
             {
                 _install_textpack();
             }
@@ -524,12 +529,12 @@ namespace CSUR.Apps
 
         private static void _install_textpack()
         {
-            if(Directory.Exists(Common.GetCRMPath() + "\\Textures") == true)
+            if(Directory.Exists(Common.GetCRMPath() + "\\RoadElements-master\\textures") == true)
             {
                 if(Directory.Exists(Common.getRoadimporter_CO()) == true)
                 {
-                    Generator_Program.CopyDir(Common.GetCRMPath() + "\\Textures", Common.getRoadimporter_CO()+"\\Textures");
-                    if(Directory.Exists(Common.getRoadimporter_CO() + "\\Textures") == true)
+                    Generator_Program.CopyDir(Common.GetCRMPath() + "\\RoadElements-master\\textures", Common.getRoadimporter_CO()+"\\textures");
+                    if(Directory.Exists(Common.getRoadimporter_CO() + "\\textures") == true)
                     {
                         _install_status_texture = true;
                         _instal_callback_texture = "Texture OK";
@@ -542,8 +547,18 @@ namespace CSUR.Apps
                 }
                 else
                 {
-                    _install_status_texture = false;
-                    _instal_callback_texture = "(-1)";
+                    Directory.CreateDirectory(Common.getRoadimporter_CO());
+                    Generator_Program.CopyDir(Common.GetCRMPath() + "\\RoadElements-master\\textures", Common.getRoadimporter_CO() + "\\textures");
+                    if (Directory.Exists(Common.getRoadimporter_CO() + "\\textures") == true)
+                    {
+                        _install_status_texture = true;
+                        _instal_callback_texture = "Texture OK";
+                    }
+                    else
+                    {
+                        _install_status_texture = false;
+                        _instal_callback_texture = "Texture install failed";
+                    }
                 }
             }
             else
