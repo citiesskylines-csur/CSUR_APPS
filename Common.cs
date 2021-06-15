@@ -568,4 +568,45 @@ namespace CSUR.Apps
             }
         }
     }
+
+    public static class GetModules
+    {
+        public static bool cnm;
+        public static string name = "";
+        public static string type = "";
+        public static void GetInstalledModules()
+        {
+            DirectoryInfo cnmsb = new DirectoryInfo(Common.getUsername() + "\\Colossal Order\\Cities_Skylines\\Addons\\Assets");
+            if(File.Exists(Directory.GetCurrentDirectory() + "\\Modulesins.txt") == false)
+            {
+                foreach (FileInfo cnmfiles in cnmsb.GetFiles())
+                {
+                    if (cnmfiles.Name.Contains("CSUR") == true)
+                    {
+                        using (StreamWriter sw = File.AppendText(Directory.GetCurrentDirectory() + "\\Modulesins.txt"))
+                        {
+                            sw.WriteLine(cnmfiles.Name);
+                        }
+                        cnm = true;
+                    }
+                }
+            }
+            else
+            {
+                File.Delete(Directory.GetCurrentDirectory() + "\\Modulesins.txt");
+                foreach (FileInfo cnmfiles in cnmsb.GetFiles())
+                {
+                    if (cnmfiles.Name.Contains("CSUR") == true)
+                    {
+                        using (StreamWriter sw = File.AppendText(Directory.GetCurrentDirectory() + "\\Modulesins.txt"))
+                        {
+                            sw.WriteLine(cnmfiles.Name);
+                        }
+                        cnm = true;
+                    }
+                }
+            }
+            
+        }
+    }
 }

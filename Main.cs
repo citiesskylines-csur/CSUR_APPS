@@ -23,6 +23,8 @@ namespace CSUR.Apps
 
         System.Timers.Timer getInsall_envir_dll = new System.Timers.Timer();//创建安装Roadimporter.dll回调的时钟
 
+        System.Timers.Timer getmodules = new System.Timers.Timer();//创建获取模块的时钟
+
         string Bar;
 
         string _Generat_result;
@@ -97,6 +99,8 @@ namespace CSUR.Apps
             Envirment_Check();
             BeforCheck();
             Install_envir();
+            GetInstalledModules();
+            StartGetIIM();
             //ShowDevTools();
         }
 
@@ -282,6 +286,65 @@ namespace CSUR.Apps
             }));
 
             RegisterExternalObjectValue("StartCheck", StartCheck);
+        }
+
+        private void GetInstalledModules()
+        {
+            var GIM = JavaScriptValue.CreateObject();
+            GIM.SetValue("modulesname", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(GetModules.name)));
+            GIM.SetValue("modulestype", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(GetModules.type)));
+            GIM.SetValue("GetModules", JavaScriptValue.CreateFunction(args =>
+             {
+                 InvokeIfRequired(async () =>
+                 {
+                     if (File.Exists(Directory.GetCurrentDirectory() + "\\Modulesins.txt") == true)
+                     {
+                         string modulesname = File.ReadAllText(Directory.GetCurrentDirectory() + "\\Modulesins.txt");
+                         string[] modules = modulesname.Split(new string[] { "\n" }, StringSplitOptions.None);
+                         foreach (string name in modules)
+                         {
+                             GetModules.name = name.Replace(".crp","").Trim();
+                             if (GetModules.name.Contains("CSUR-R") == true)
+                             {
+                                 GetModules.type = "Ramp";
+                             }
+                             else if(GetModules.name.Contains("CSUR-T") == true)
+                             {
+                                 GetModules.type = "Trans";
+                             }
+                             else if (GetModules.name.Contains("CSUR-S") == true)
+                             {
+                                 GetModules.type = "Shift";
+                             }
+                             else
+                             {
+                                 GetModules.type = "Base";
+                             }
+                             Console.WriteLine(GetModules.name);
+                             await EvaluateJavaScriptAsync("setIIMtable()");
+                         }
+                     }
+                 });
+                 return JavaScriptValue.CreateString("OK");
+             }));
+
+            RegisterExternalObjectValue("IIM", GIM);
+        }
+
+        private void StartGetIIM()
+        {
+            var SGIM = JavaScriptValue.CreateObject();
+            SGIM.SetValue("SGIM", JavaScriptValue.CreateFunction(args =>
+            {
+                InvokeIfRequired(async () =>
+                {
+                    Thread GIM_Thead;
+                    GIM_Thead = new Thread(GetModules.GetInstalledModules);
+                    GIM_Thead.Start();
+                });
+                return JavaScriptValue.CreateString("OK");
+            }));
+            RegisterExternalObjectValue("SIIM", SGIM);
         }
 
         private void BeforCheck()
