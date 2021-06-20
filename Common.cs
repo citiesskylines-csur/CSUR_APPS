@@ -275,6 +275,8 @@ namespace CSUR.Apps
 
     public static class Generator_Program
     {
+        public static string _Generat_result;
+        public static string _Generat_Code;
         //复制文件程序
         public static bool CopyDir(string _source, string _dest)
         {
@@ -315,7 +317,7 @@ namespace CSUR.Apps
             return retValue;
         }
         //生成器程序
-        public static string Generator_S(string roadname)
+        public static void Generator_S()
         {
             Process proc = null;
 
@@ -325,7 +327,7 @@ namespace CSUR.Apps
             }
             else
             {
-                return "CSUR Master error";
+                _Generat_result = "CSUR Master error";
             }
 
             CSUR_Generator_Var.Bar = "15";
@@ -356,7 +358,7 @@ namespace CSUR.Apps
             proc = new Process();
             proc.StartInfo.WorkingDirectory = GeneratorPath;
             proc.StartInfo.FileName = Common.GetCRMPath() + "\\make.bat";
-            proc.StartInfo.Arguments = string.Format(roadname);//this is argument
+            proc.StartInfo.Arguments = string.Format(_Generat_Code);//this is argument
             //proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.CreateNoWindow = false;
             proc.Start();
@@ -381,32 +383,99 @@ namespace CSUR.Apps
                         //将生成的文件移动至CSL C盘根目录Roadimporter文件夹
                         CopyDir(GeneratorPath + "\\import", Common.getRoadimporter_CO() + "\\import");
                         //将imports.txt复制到上一级目录(Roadimporter)
-                        FileInfo importtxt = new FileInfo(Common.getRoadimporter_CO() + "\\import\\imports.txt");
-                        importtxt.MoveTo(Common.getRoadimporter_CO()+"\\imports.txt");
-                        CSUR_Generator_Var.Bar = "100";
-                        return "1 True";//全部执行完毕返回true，程序关闭
+                        if(Generator_Bo() == true)
+                        {
+                            CSUR_Generator_Var.Bar = "100";
+                            _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                        }
+                        else
+                        {
+                            CSUR_Generator_Var.Bar = "100";
+                            _Generat_result = "false \n output failed";
+                        }
                     }
                     else
                     {
                         Directory.Move(GeneratorPath + "\\output", GeneratorPath + "\\import");//将生成的文件移动至CSL C盘根目录Roadimporter文件夹
                         CopyDir(GeneratorPath + "\\import", Common.getRoadimporter_CO() + "\\import");
                         //将imports.txt复制到上一级目录(Roadimporter)
-                        FileInfo importtxt = new FileInfo(Common.getRoadimporter_CO() + "\\import\\imports.txt");
-                        importtxt.MoveTo(Common.getRoadimporter_CO() + "\\imports.txt");
+                        if (Generator_Bo() == true)
+                        {
+                            CSUR_Generator_Var.Bar = "100";
+                            _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                        }
+                        else
+                        {
+                            CSUR_Generator_Var.Bar = "100";
+                            _Generat_result = "false \n output failed";
+                        }
                         CSUR_Generator_Var.Bar = "100";
-                        return "1 True";//全部执行完毕返回true，程序关闭
+                        _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
                     }
                     
                 }
                 else
                 {
                     CSUR_Generator_Var.Bar = "100";
-                    return "false \n output failed";
+                    _Generat_result = "false \n output failed";
                 }
             }
             else
             {
-                return "false \n output failed";
+                Directory.CreateDirectory(GeneratorPath + "\\output");
+                if (Directory.Exists(GeneratorPath + "\\import") == true)
+                {
+                    DirectoryInfo _old_import = new DirectoryInfo(GeneratorPath + "\\import");
+                    _old_import.Delete(true);
+                    Directory.Move(GeneratorPath + "\\output", GeneratorPath + "\\import");
+                    //将生成的文件移动至CSL C盘根目录Roadimporter文件夹
+                    CopyDir(GeneratorPath + "\\import", Common.getRoadimporter_CO() + "\\import");
+                    //将imports.txt复制到上一级目录(Roadimporter)
+                    if (Generator_Bo() == true)
+                    {
+                        CSUR_Generator_Var.Bar = "100";
+                        _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                    }
+                    else
+                    {
+                        CSUR_Generator_Var.Bar = "100";
+                        _Generat_result = "false \n output failed";
+                    }
+                    CSUR_Generator_Var.Bar = "100";
+                    _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                }
+                else
+                {
+                    Directory.Move(GeneratorPath + "\\output", GeneratorPath + "\\import");//将生成的文件移动至CSL C盘根目录Roadimporter文件夹
+                    CopyDir(GeneratorPath + "\\import", Common.getRoadimporter_CO() + "\\import");
+                    //将imports.txt复制到上一级目录(Roadimporter)
+                    if (Generator_Bo() == true)
+                    {
+                        CSUR_Generator_Var.Bar = "100";
+                        _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                    }
+                    else
+                    {
+                        CSUR_Generator_Var.Bar = "100";
+                        _Generat_result = "false \n output failed";
+                    }
+                    CSUR_Generator_Var.Bar = "100";
+                    _Generat_result = "1 True";//全部执行完毕返回true，程序关闭
+                }
+            }
+        }
+
+        public static bool Generator_Bo()
+        {
+            if(File.Exists(Common.getRoadimporter_CO() + "\\import\\imports.txt") == true)
+            {
+                FileInfo importtxt = new FileInfo(Common.getRoadimporter_CO() + "\\import\\imports.txt");
+                importtxt.MoveTo(Common.getRoadimporter_CO() + "\\imports.txt");
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

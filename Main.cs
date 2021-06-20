@@ -27,7 +27,7 @@ namespace CSUR.Apps
 
         string Bar;
 
-        string _Generat_result;
+        public static string roadcode;
 
         bool _expecterror = false;
 
@@ -276,7 +276,6 @@ namespace CSUR.Apps
 
                         if (_CONGIF_ARRAY[1].Trim() != "" && _CONGIF_ARRAY[2].Trim() == "Blender:True" && _CONGIF_ARRAY[3].Trim() == "CSURMaster:True" && _CONGIF_ARRAY[4].Trim() == "TexturesPack:True" && _CONGIF_ARRAY[0].Trim() != "")
                         {
-                            //await EvaluateJavaScriptAsync("document.getElementById('installation').style.disable =  'none';");
                             ExecuteJavaScript(@"Check_noti_group()");
                         }
                     }
@@ -349,28 +348,6 @@ namespace CSUR.Apps
 
         private void BeforCheck()
         {
-            /***var b_Check = JavaScriptValue.CreateObject();
-
-            b_Check.SetValue("BeforeCheck", JavaScriptValue.CreateFunction(args => {
-            var msg = args.FirstOrDefault(x => x.IsString);
-
-                InvokeIfRequired(async () =>
-                {
-                    string _CONFIG = File.ReadAllText(Common_Var.config);
-                    string[] _CONGIF_ARRAY = _CONFIG.Split('\n');
-                    if (_CONGIF_ARRAY[1].Trim() != "" && _CONGIF_ARRAY[2].Trim() == "Blender:True" && _CONGIF_ARRAY[3].Trim() == "CSURMaster:True" && _CONGIF_ARRAY[4].Trim() == "TexturesPack:True" && _CONGIF_ARRAY[0].Trim() != "")
-                    {
-                        await EvaluateJavaScriptAsync(@"Check_noti_group()");
-                        CSUR_Generator_Var.CanStart = true;
-                    }
-                    else
-                    {
-                        await EvaluateJavaScriptAsync(@"Before_error()");
-                    }
-                });
-                return JavaScriptValue.CreateString("Checked");
-        }))***/
-            //RegisterExternalObjectValue("BeforeCheck",b_Check);
             if (CSUR_Generator_Var.CanStart == true)
             {
 
@@ -386,12 +363,41 @@ namespace CSUR.Apps
             ExecuteJavaScript(@"document.getElementById('processbar').style.width =  '" + Bar + "%';");
             if (Bar == "100")
             {
-                getprocess.Stop();
-            }
-            else if (_expecterror == true)
-            {
-                getprocess.Stop();
-                ExecuteJavaScript(@"document.getElementById('processbar').style.width =  '0%';");
+                if (Generator_Program._Generat_result == "1 True")//传参到生成器
+                {
+                    ExecuteJavaScript(@"Generator_success()");
+                    ExecuteJavaScript(@"document.getElementById('Gen_Start_1').className = '';");
+                    ExecuteJavaScript(@"document.getElementById('roadcode').value = '';");
+                    CSUR_Generator_Var.CanStart = false;
+                    getprocess.Stop();
+                }
+                else if (Generator_Program._Generat_result == "false \n output failed")
+                {
+                    Console.WriteLine("false \n output failed");
+                    ExecuteJavaScript(@"output_error()");
+                    ExecuteJavaScript(@"document.getElementById('Gen_Start_1').className = '';");
+                    ExecuteJavaScript(@"document.getElementById('roadcode').value = '';");
+                    CSUR_Generator_Var.CanStart = false;
+                    getprocess.Stop();
+                }
+                else if (Generator_Program._Generat_result == "failed \n Generator error")
+                {
+                    Console.WriteLine("failed \n Generator error");
+                    ExecuteJavaScript(@"Generator_error()");
+                    ExecuteJavaScript(@"document.getElementById('Gen_Start_1').className = '';");
+                    ExecuteJavaScript(@"document.getElementById('roadcode').value = '';");
+                    CSUR_Generator_Var.CanStart = false;
+                    getprocess.Stop();
+                }
+                else if (Generator_Program._Generat_result == "Roadcode error")
+                {
+                    Console.WriteLine("Roadcode error");
+                    ExecuteJavaScript(@"Roadcode_error()");
+                    ExecuteJavaScript(@"document.getElementById('Gen_Start_1').className = '';");
+                    ExecuteJavaScript(@"document.getElementById('roadcode').value = '';");
+                    CSUR_Generator_Var.CanStart = false;
+                    getprocess.Stop();
+                }
             }
         }
 
@@ -482,67 +488,21 @@ namespace CSUR.Apps
                              {
                                  string _code_result = CSUR_Generator_Var.RoadeCode.Replace(",", " ");//将分隔符替换为空格
 
-                                  _Generat_result = Generator_Program.Generator_S(_code_result);//传参到生成器
-
-                                 Console.WriteLine(_Generat_result);
-
-                                 if (_Generat_result == "1 True")//传参到生成器
-                                 {
-                                     ExecuteJavaScript(@"Generator_success()");
-                                     Bar = "100";
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "false \n output failed")
-                                 {
-                                     Console.WriteLine("false \n output failed");
-                                     ExecuteJavaScript(@"output_error()");
-                                     _expecterror = true;
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "failed \n Generator error")
-                                 {
-                                     Console.WriteLine("failed \n Generator error");
-                                     ExecuteJavaScript(@"Generator_error()");
-                                     _expecterror = true;
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "Roadcode error")
-                                 {
-                                     Console.WriteLine("Roadcode error");
-                                     ExecuteJavaScript(@"Roadcode_error()");
-                                     _expecterror = true;
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
+                                 // = Generator_Program.Generator_S(_code_result);//传参到生成器
+                                 Generator_Program._Generat_Code = _code_result;
+                                     Thread _generator;
+                                 _generator = new Thread(Generator_Program.Generator_S);
+                                 _generator.Start();
                                  ///注意
                                  ///从界面返回的代码必须是经过处理的，含有道路标识的道路模块名称
                                  ///注意
                              }
                              else
                              {
-                                 _Generat_result = Generator_Program.Generator_S(CSUR_Generator_Var.RoadeCode);
-                                 if (_Generat_result == "1 True")//传参到生成器
-                                 {
-                                     ExecuteJavaScript(@"Generator_success()");
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "false \n output failed")
-                                 {
-                                     Console.WriteLine("false \n output failed");
-                                     ExecuteJavaScript(@"output_error()");
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "failed \n Generator error")
-                                 {
-                                     Console.WriteLine("failed \n Generator error");
-                                     ExecuteJavaScript(@"Generator_error()");
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
-                                 else if (_Generat_result == "Roadcode error")
-                                 {
-                                     Console.WriteLine("Roadcode error");
-                                     ExecuteJavaScript(@"Roadcode_error()");
-                                     CSUR_Generator_Var.CanStart = false;
-                                 }
+                                 Generator_Program._Generat_Code = CSUR_Generator_Var.RoadeCode;
+                                 Thread _generator;
+                                 _generator = new Thread(Generator_Program.Generator_S);
+                                 _generator.Start();
                              }
                          }
                          else
@@ -571,11 +531,6 @@ namespace CSUR.Apps
             {
                 InvokeIfRequired(async() => 
                 {
-                    //getInsall_envir_dll.Interval = 300;
-                    ///getInsall_envir_dll.Elapsed += new ElapsedEventHandler(get_install_envir_dll);
-                    //getInsall_envir_dll.AutoReset = true;
-                    //getInsall_envir_dll.Enabled = false;
-                    //getInsall_envir_dll.Start();
                     try
                     {
                         Thread t1_instal;
