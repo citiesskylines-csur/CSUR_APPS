@@ -678,4 +678,14 @@ namespace CSUR.Apps
             
         }
     }
+    public static class Selector
+    {
+        public static string addname;
+        public static string addname_type;
+        public static string addname_mode;
+        public static string savesname;
+
+        public static string allnames;
+        public static string alltypes;
+    }
 }

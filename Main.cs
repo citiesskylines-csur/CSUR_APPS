@@ -14,6 +14,8 @@ using System.Drawing;
 using System.IO;
 using System.Timers;
 using System.Threading;
+using CSURToolBox;
+using CSURModules;
 
 namespace CSUR.Apps
 {
@@ -24,6 +26,8 @@ namespace CSUR.Apps
         System.Timers.Timer getInsall_envir_dll = new System.Timers.Timer();//创建安装Roadimporter.dll回调的时钟
 
         System.Timers.Timer getmodules = new System.Timers.Timer();//创建获取模块的时钟
+
+        System.Timers.Timer savereadylist = new System.Timers.Timer(); //创建保存准备列表的时钟
 
         string Bar;
 
@@ -101,6 +105,7 @@ namespace CSUR.Apps
             Install_envir();
             GetInstalledModules();
             StartGetIIM();
+            Selecter_CSUR();
             //ShowDevTools();
         }
 
@@ -550,6 +555,291 @@ namespace CSUR.Apps
                 return JavaScriptValue.CreateString("OK");
             }));
             RegisterExternalObjectValue("Envir_Installation", envir_install);
+        }
+
+        private void Selecter_CSUR()
+        {
+            var obj = JavaScriptValue.CreateObject();
+            var obj1 = JavaScriptValue.CreateObject();
+            var obj2 = JavaScriptValue.CreateObject();
+            var obj3 = JavaScriptValue.CreateObject();
+            var obj4 = JavaScriptValue.CreateObject();
+            var obj5 = JavaScriptValue.CreateObject();
+            obj.SetValue("FromSelect",JavaScriptValue.CreateFunction(args => {
+                InvokeIfRequired(async () =>
+                {
+                    var t_s = args[0].GetString();
+                    //ParserNames.toSelected = Convert.ToInt32(t_s);
+                    if (t_s == "1R")
+                    {
+                        ParserNames.ToParser(6);
+                    }
+                    else if(t_s == "1P")
+                    {
+                        ParserNames.ToParser(7);
+                    }
+                    if (t_s == "2R")
+                    {
+                        ParserNames.ToParser(8);
+                    }
+                    else if(t_s == "2P")
+                    {
+                        ParserNames.ToParser(9);
+                    }
+                    if (t_s == "3R")
+                    {
+                        ParserNames.ToParser(10);
+                    }
+                    else if(t_s == "3P")
+                    {
+                        ParserNames.ToParser(11);
+                    }
+                    if (t_s == "4R")
+                    {
+                        ParserNames.ToParser(12);
+                    }
+                    else if(t_s == "4P")
+                    {
+                        ParserNames.ToParser(13);
+                    }
+                    if (t_s == "5R")
+                    {
+                        ParserNames.ToParser(14);
+                    }
+                    else if(t_s == "5P")
+                    {
+                        ParserNames.ToParser(15);
+                    }
+                    if (t_s == "6R")
+                    {
+                        ParserNames.ToParser(16);
+                    }
+                    else if(t_s == "6P")
+                    {
+                        ParserNames.ToParser(17);
+                    }
+                    if (t_s == "7R")
+                    {
+                        ParserNames.ToParser(18);
+                    }
+                    else if(t_s == "7P")
+                    {
+                        ParserNames.ToParser(19);
+                    }
+                    if (t_s == "8R")
+                    {
+                        ParserNames.ToParser(20);
+                    }
+                    else if(t_s == "8P")
+                    {
+                        ParserNames.ToParser(21);
+                    }
+                });
+                return JavaScriptValue.CreateString("OK");
+            }));
+            obj1.SetValue("ToSelect",JavaScriptValue.CreateFunction(args1 => {
+                InvokeIfRequired(async () => 
+                {
+                    var f_s = args1[0].GetString();
+                    Console.WriteLine(f_s);
+                    //ParserNames.fromSelected = Convert.ToInt32(f_s);
+                    if (f_s == "1R")
+                    {
+                        ParserNames.FromParser(6);
+                    }
+                    else if (f_s == "1P")
+                    {
+                        ParserNames.FromParser(7);
+                    }
+                    if (f_s == "2R")
+                    {
+                        ParserNames.FromParser(8);
+                    }
+                    else if (f_s == "2P")
+                    {
+                        ParserNames.FromParser(9);
+                    }
+                    if (f_s == "3R")
+                    {
+                        ParserNames.FromParser(10);
+                    }
+                    else if (f_s == "3P")
+                    {
+                        ParserNames.FromParser(11);
+                    }
+                    if (f_s == "4R")
+                    {
+                        ParserNames.FromParser(12);
+                    }
+                    else if (f_s == "4P")
+                    {
+                        ParserNames.FromParser(13);
+                    }
+                    if (f_s == "5R")
+                    {
+                        ParserNames.FromParser(14);
+                    }
+                    else if (f_s == "5P")
+                    {
+                        ParserNames.FromParser(15);
+                    }
+                    if (f_s == "6R")
+                    {
+                        ParserNames.FromParser(16);
+                    }
+                    else if (f_s == "6P")
+                    {
+                        ParserNames.FromParser(17);
+                    }
+                    if (f_s == "7R")
+                    {
+                        ParserNames.FromParser(18);
+                    }
+                    else if (f_s == "7P")
+                    {
+                        ParserNames.FromParser(19);
+                    }
+                    if (f_s == "8R")
+                    {
+                        ParserNames.FromParser(20);
+                    }
+                    else if (f_s == "8P")
+                    {
+                        ParserNames.FromParser(21);
+                    }
+                });
+                return JavaScriptValue.CreateString("OK");
+            }));
+            obj2.SetValue("Generat", JavaScriptValue.CreateFunction(args2 =>
+             {
+                 InvokeIfRequired(async () =>
+                 {
+                     var mode1 = args2[0].GetString();
+                     string mo_name;
+                     if (mode1 == "one")
+                     {
+                         ParserNames.availableSymmetry = 255;
+                         mo_name = Parser.ModuleNameFromUI(ParserNames.toSelected, ParserNames.fromSelected, ParserNames.availableSymmetry, false, false);
+                         Console.WriteLine(mo_name);
+                         await EvaluateJavaScriptAsync(@"document.getElementById('moname').value = '" + mo_name + "';");
+                     }
+                     else if(mode1 == "two")
+                     {
+                         ParserNames.availableSymmetry = 0;
+                         mo_name = Parser.ModuleNameFromUI(ParserNames.toSelected, ParserNames.fromSelected, ParserNames.availableSymmetry, false, false);
+                         Console.WriteLine(mo_name);
+                         await EvaluateJavaScriptAsync(@"document.getElementById('moname').value = '" + mo_name + "';");
+                     }
+                     else if(mode1 == "Gall")
+                     {
+                         ParserNames.availableSymmetry = 0;
+                         mo_name = Parser.ModuleNameFromUI(ParserNames.toSelected, ParserNames.fromSelected, ParserNames.availableSymmetry, false, false);
+                         ParserNames.availableSymmetry = 255;
+                         mo_name += Parser.ModuleNameFromUI(ParserNames.toSelected, ParserNames.fromSelected, ParserNames.availableSymmetry, false, false);
+                         await EvaluateJavaScriptAsync(@"document.getElementById('moname').value = '" + mo_name + "';");
+                     }
+                 });
+                 return JavaScriptValue.CreateString("OK");
+             }));
+            obj3.SetValue("addname", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(Selector.addname)));
+            obj3.SetValue("atype", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(Selector.addname_type)));
+            obj3.SetValue("amode", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(Selector.addname_mode)));
+            obj3.SetValue("AddinList", JavaScriptValue.CreateFunction(args3 => 
+            {
+                InvokeIfRequired(async () =>
+                {
+                    Selector.addname = Parser.ModuleNameFromUI(ParserNames.toSelected, ParserNames.fromSelected, ParserNames.availableSymmetry, false, false);
+                    bool _t = Selector.addname.Contains("express");
+                    if(Selector.addname != "")
+                    {
+                        if (Selector.addname.Contains("CSUR-T") == true)
+                        {
+                            Selector.addname_type = "Trans";
+                        }
+                        else if (Selector.addname.Contains("CSUR-S") == true)
+                        {
+                            Selector.addname_type = "Shift";
+                        }
+                        else if (Selector.addname.Contains("CSUR-R") == true)
+                        {
+                            Selector.addname_type = "Ramp";
+                        }
+                        else
+                        {
+                            Selector.addname_type = "Base";
+                        }
+                        if (_t == true)
+                        {
+                            Selector.addname_mode = "express";
+                        }
+                        else
+                        {
+                            Selector.addname_mode = "compact";
+                        }
+                        await EvaluateJavaScriptAsync("AddtoReadyList()");
+                        Console.WriteLine(Selector.addname + Selector.addname_mode + Selector.addname_type);
+                    }
+                });
+                return JavaScriptValue.CreateString("OK");
+            }));
+            obj3.SetValue("Savesname", JavaScriptValue.CreateProperty(() => JavaScriptValue.CreateString(Selector.savesname)));
+            obj4.SetValue("SaveList", JavaScriptValue.CreateFunction(arg4 =>
+             {
+                 InvokeIfRequired(async () =>
+                 {
+                     string sbcnm = arg4[0].GetString();
+                     if (Selector.savesname != "")
+                     {
+
+                         Selector.allnames = sbcnm;
+                         Console.WriteLine(Selector.savesname);
+                         //string[] sb = sbcnm.Split(',');
+                     }
+                     
+                 });
+                 return JavaScriptValue.CreateString("OK");
+             }));
+            obj5.SetValue("ImportSave", JavaScriptValue.CreateFunction(args5 =>
+             {
+                 InvokeIfRequired(async () =>
+                 {
+                     string saves = Selector.allnames;
+                     string importsaves;
+                     if(saves.Contains("undefinedModules Name,") == true)
+                     {
+                         saves = saves.Replace("undefinedModules Name,", "").Trim();
+                         saves = saves.Replace("CSUR ", "").Trim();
+                         if (saves.Contains("CSUR-T") == true) saves = saves.Replace("CSUR-T", "").Trim();
+                         if (saves.Contains("CSUR-S") == true) saves = saves.Replace("CSUR-S", "").Trim();
+                         if (saves.Contains("CSUR-R") == true) saves = saves.Replace("CSUR-R", "").Trim();
+                         if (saves.Contains("express") == true)
+                         {
+                             saves = saves.Replace("express", "");
+                             saves = saves + "_express";
+                             saves = saves.Replace(",_express", "");
+                         }
+                         if (saves.Contains("compact") == true)
+                         {
+                             saves = saves.Replace("compact", "");
+                             saves = saves + "_compact";
+                             saves = saves.Replace(",_compact", "");
+                         }
+                         importsaves = saves.Replace(" ", "").Trim();
+                         await EvaluateJavaScriptAsync(@"document.getElementById('roadcode').value = '" + importsaves + "';");
+                     }
+                     else
+                     {
+                         await EvaluateJavaScriptAsync(@"document.getElementById('roadcode').value = '" + saves + "';");
+                     }
+                 });
+                 return JavaScriptValue.CreateString("OK");
+             }));
+            RegisterExternalObjectValue("Select_From", obj);
+            RegisterExternalObjectValue("Select_To", obj1);
+            RegisterExternalObjectValue("Select_Gen", obj2);
+            RegisterExternalObjectValue("Select_Add", obj3);
+            RegisterExternalObjectValue("Select_Save", obj4);
+            RegisterExternalObjectValue("Select_Import", obj5);
         }
     }
 }
